@@ -77,16 +77,16 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 -z-10" />
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-in fade-in slide-in-from-left duration-700">
-              <div className="space-y-4">
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            <div className="space-y-10 animate-in fade-in slide-in-from-left duration-700">
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-6xl font-bold leading-relaxed">
                   你的留学路上
                   <br />
                   <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                     最可靠的云伴侣
                   </span>
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-xl">
+                <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
                   专业导师团队 · 7x24小时服务 · 覆盖全学科 · 助力学业成功
                 </p>
               </div>
