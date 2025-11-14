@@ -50,20 +50,22 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
-        <div className="container mx-auto px-4 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border/50 shadow-lg">
+        <div className="container mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <GraduationCap className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <div className="flex items-center gap-3 group cursor-pointer">
+              <div className="p-2 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-lg group-hover:shadow-xl transition-all">
+                <GraduationCap className="h-6 w-6 text-primary-foreground" />
+              </div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
                 留学云伴
               </span>
             </div>
             <div className="hidden md:flex items-center gap-8">
-              <a href="#services" className="text-foreground hover:text-primary transition-colors">服务项目</a>
-              <a href="#features" className="text-foreground hover:text-primary transition-colors">平台优势</a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">关于我们</a>
-              <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity">
+              <a href="#services" className="text-foreground/80 hover:text-primary font-medium transition-all hover:scale-105">服务项目</a>
+              <a href="#features" className="text-foreground/80 hover:text-primary font-medium transition-all hover:scale-105">平台优势</a>
+              <a href="#about" className="text-foreground/80 hover:text-primary font-medium transition-all hover:scale-105">关于我们</a>
+              <Button className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all shadow-md">
                 <MessageCircle className="h-4 w-4 mr-2" />
                 立即咨询
               </Button>
@@ -73,9 +75,11 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10 -z-10" />
-        <div className="container mx-auto px-4">
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5 -z-10" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10" />
+        <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-10 animate-in fade-in slide-in-from-left duration-700">
               <div className="space-y-6">
@@ -91,31 +95,32 @@ const Index = () => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity text-lg px-8">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:shadow-xl hover:scale-105 transition-all text-lg px-10 shadow-lg">
                   免费咨询
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 border-2 border-primary hover:bg-primary/10">
+                <Button size="lg" variant="outline" className="text-lg px-10 border-2 border-primary/50 hover:bg-primary/10 hover:border-primary hover:scale-105 transition-all">
                   <Phone className="h-5 w-5 mr-2" />
                   预约试课
                 </Button>
               </div>
-              <div className="flex flex-wrap gap-8 pt-4">
+              <div className="flex flex-wrap gap-10 pt-6">
                 {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl font-bold text-primary">{stat.number}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div key={index} className="text-center group cursor-default">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:scale-110 transition-transform">{stat.number}</div>
+                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
                   </div>
                 ))}
               </div>
             </div>
             <div className="relative animate-in fade-in slide-in-from-right duration-700 delay-200">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl opacity-50" />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-border/50 hover:shadow-[0_20px_60px_-15px_rgba(0,119,255,0.3)] transition-all duration-500">
                 <img 
                   src={heroImage} 
                   alt="留学生学习场景" 
                   className="w-full h-auto object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
               </div>
             </div>
           </div>
@@ -123,31 +128,33 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">核心服务</h2>
+      <section id="services" className="py-24 bg-muted/20 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background -z-10" />
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">核心服务</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               一站式留学生学业辅导解决方案
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/50"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-border/50 hover:border-primary/50 backdrop-blur-sm bg-card/50 overflow-hidden relative"
               >
-                <CardContent className="p-6 space-y-4">
-                  <div className="h-14 w-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <service.icon className="h-7 w-7 text-primary-foreground" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardContent className="p-7 space-y-5 relative">
+                  <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                    <service.icon className="h-8 w-8 text-primary-foreground" />
                   </div>
-                  <h3 className="text-2xl font-bold">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                  <ul className="space-y-2">
+                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{service.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <ul className="space-y-3 pt-2">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span>{feature}</span>
+                      <li key={idx} className="flex items-center gap-3 text-sm group/item">
+                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                        <span className="group-hover/item:text-foreground text-foreground/80 transition-colors">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -159,22 +166,24 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">为什么选择我们</h2>
+      <section id="features" className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">为什么选择我们</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               专业团队 · 贴心服务 · 值得信赖
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="flex items-center gap-3 p-5 rounded-xl bg-card border-2 border-border hover:border-primary/50 hover:shadow-lg transition-all"
+                className="group flex items-center gap-4 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
-                <TrendingUp className="h-6 w-6 text-primary flex-shrink-0" />
-                <span className="font-medium">{feature}</span>
+                <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 group-hover:from-primary/20 group-hover:to-secondary/20 transition-colors">
+                  <TrendingUp className="h-5 w-5 text-primary flex-shrink-0" />
+                </div>
+                <span className="font-medium group-hover:text-primary transition-colors">{feature}</span>
               </div>
             ))}
           </div>
@@ -182,18 +191,19 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold">开启你的学业提升之旅</h2>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto">
+      <section className="py-24 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQtMi42ODYtNi02LTZzLTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2IDYtMi42ODYgNi02ek0wIDB2NjBoNjBWMEgwem0zMCAzNGMtOS45NDEgMC0xOC03LjA1OS0xOC0xN0gwdjQyaDYwVjE3SDQ4Yy45NDEgOS45NDEtOC4wNTkgMTctMTggMTd6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10" />
+        <div className="container mx-auto px-6 text-center space-y-10 relative">
+          <h2 className="text-4xl md:text-5xl font-bold drop-shadow-lg">开启你的学业提升之旅</h2>
+          <p className="text-xl opacity-95 max-w-2xl mx-auto leading-relaxed">
             立即联系我们，获取专属学习方案和免费试课机会
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8 bg-background text-foreground hover:bg-background/90">
+          <div className="flex flex-wrap gap-5 justify-center pt-4">
+            <Button size="lg" variant="secondary" className="text-lg px-10 bg-background text-foreground hover:bg-background/90 hover:scale-105 transition-all shadow-xl">
               <MessageCircle className="h-5 w-5 mr-2" />
               在线咨询
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 border-2 border-background text-background hover:bg-background/10">
+            <Button size="lg" variant="outline" className="text-lg px-10 border-2 border-background/80 text-primary-foreground hover:bg-background/20 hover:border-background hover:scale-105 transition-all backdrop-blur-sm">
               <Phone className="h-5 w-5 mr-2" />
               400-XXX-XXXX
             </Button>
