@@ -79,7 +79,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-10 animate-in fade-in slide-in-from-left duration-700">
               <div className="space-y-6">
-                <h1 className="text-5xl md:text-6xl font-bold leading-relaxed">
+                <h1 className="text-5xl md:text-6xl font-bold leading-[1.6]">
                   你的留学路上
                   <br />
                   <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
