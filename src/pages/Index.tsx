@@ -7,27 +7,26 @@ const Index = () => {
   const services = [
     {
       icon: BookOpen,
-      title: "课程辅导",
-      description: "专业导师1v1辅导，覆盖各学科核心课程",
-      features: ["数学/统计", "编程/CS", "商科/金融", "工程/物理"]
+      title: "课程视频课",
+      description: "按院校分类的专业课程，付费录播课与免费体验课",
+      features: [
+        "英国：南安普顿、格拉斯哥、兰卡斯特",
+        "澳洲：悉尼、墨尔本、昆士兰",
+        "澳洲：莫纳什、阿德莱德",
+        "付费录播课 + 免费体验课"
+      ]
     },
     {
       icon: GraduationCap,
-      title: "学术写作",
-      description: "论文指导与润色，提升学术写作能力",
-      features: ["Essay写作", "Research Paper", "毕业论文", "文献综述"]
-    },
-    {
-      icon: Users,
-      title: "考试突击",
-      description: "考前冲刺辅导，真题讲解与答疑",
-      features: ["期中期末", "标准化考试", "模拟测试", "重点串讲"]
+      title: "留学申诉",
+      description: "专业申诉服务，协助处理学术申诉相关事宜",
+      features: ["成绩申诉", "学术不端申诉", "签证申诉", "专业指导"]
     },
     {
       icon: Award,
-      title: "作业辅导",
-      description: "日常作业答疑，培养解题思路",
-      features: ["作业讲解", "习题指导", "项目辅助", "24h答疑"]
+      title: "毕业论文",
+      description: "毕业论文全程指导，从选题到答辩全方位支持",
+      features: ["选题指导", "论文写作", "数据分析", "答辩准备"]
     }
   ];
 
