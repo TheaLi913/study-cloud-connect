@@ -2,32 +2,32 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, GraduationCap, Users, Award, TrendingUp, CheckCircle2, MessageCircle, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-students.jpg";
-import wechatQR from "@/assets/wechat-qr.png";
 
 const Index = () => {
   const services = [
     {
       icon: BookOpen,
-      title: "课程视频课",
-      description: "按院校分类的专业课程，付费录播课与免费体验课",
-      features: [
-        "英国：南安普顿、格拉斯哥、兰卡斯特",
-        "澳洲：悉尼、墨尔本、昆士兰",
-        "澳洲：莫纳什、阿德莱德",
-        "付费录播课 + 免费体验课"
-      ]
+      title: "课程辅导",
+      description: "专业导师1v1辅导，覆盖各学科核心课程",
+      features: ["数学/统计", "编程/CS", "商科/金融", "工程/物理"]
     },
     {
       icon: GraduationCap,
-      title: "留学申诉",
-      description: "专业申诉服务，协助处理学术申诉相关事宜",
-      features: ["成绩申诉", "学术不端申诉", "签证申诉", "专业指导"]
+      title: "学术写作",
+      description: "论文指导与润色，提升学术写作能力",
+      features: ["Essay写作", "Research Paper", "毕业论文", "文献综述"]
+    },
+    {
+      icon: Users,
+      title: "考试突击",
+      description: "考前冲刺辅导，真题讲解与答疑",
+      features: ["期中期末", "标准化考试", "模拟测试", "重点串讲"]
     },
     {
       icon: Award,
-      title: "毕业论文",
-      description: "毕业论文全程指导，从选题到答辩全方位支持",
-      features: ["选题指导", "论文写作", "数据分析", "答辩准备"]
+      title: "作业辅导",
+      description: "日常作业答疑，培养解题思路",
+      features: ["作业讲解", "习题指导", "项目辅助", "24h答疑"]
     }
   ];
 
@@ -190,61 +190,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* WeChat Contact Section */}
-      <section className="py-24 bg-gradient-to-br from-background via-card/30 to-background">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              微信咨询
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              扫描二维码添加微信，获取专业咨询服务
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <Card className="inline-block p-8 border-2 border-border/50 bg-card/50 backdrop-blur-sm shadow-elegant hover:shadow-glow transition-all duration-500 hover:scale-105">
-              <CardContent className="p-0">
-                <div className="space-y-4 text-center">
-                  <div className="p-4 bg-background rounded-xl inline-block">
-                    <img 
-                      src={wechatQR} 
-                      alt="微信二维码" 
-                      className="w-64 h-64 object-contain"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-lg font-semibold text-foreground">
-                      扫码添加客服微信
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      7×24小时在线服务
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-secondary -z-10" />
-        <div className="absolute inset-0 opacity-10 -z-10">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-                <path d="M 32 0 L 0 0 0 32" fill="none" stroke="currentColor" strokeWidth="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
-        <div className="container mx-auto px-6 text-center relative z-10 space-y-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground drop-shadow-lg">
-            开启你的学业提升之旅
-          </h2>
-          <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto leading-relaxed">
+      <section className="py-24 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQtMi42ODYtNi02LTZzLTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2IDYtMi42ODYgNi02ek0wIDB2NjBoNjBWMEgwem0zMCAzNGMtOS45NDEgMC0xOC03LjA1OS0xOC0xN0gwdjQyaDYwVjE3SDQ4Yy45NDEgOS45NDEtOC4wNTkgMTctMTggMTd6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10" />
+        <div className="container mx-auto px-6 text-center space-y-10 relative">
+          <h2 className="text-4xl md:text-5xl font-bold drop-shadow-lg">开启你的学业提升之旅</h2>
+          <p className="text-xl opacity-95 max-w-2xl mx-auto leading-relaxed">
             立即联系我们，获取专属学习方案和免费试课机会
           </p>
           <div className="flex flex-wrap gap-5 justify-center pt-4">
