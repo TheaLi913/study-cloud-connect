@@ -7,79 +7,27 @@ const Index = () => {
   const services = [
     {
       icon: BookOpen,
-      title: "视频课",
-      description: "海量课程资源，名师授课",
-      link: "#courses"
+      title: "课程辅导",
+      description: "专业导师1v1辅导，覆盖各学科核心课程",
+      features: ["数学/统计", "编程/CS", "商科/金融", "工程/物理"]
     },
     {
       icon: GraduationCap,
-      title: "毕业论文",
-      description: "专业论文指导，助力顺利毕业",
-      link: "#thesis"
+      title: "学术写作",
+      description: "论文指导与润色，提升学术写作能力",
+      features: ["Essay写作", "Research Paper", "毕业论文", "文献综述"]
     },
     {
       icon: Users,
-      title: "1v1辅导",
-      description: "一对一专属辅导，定制学习方案",
-      link: "#tutoring"
+      title: "考试突击",
+      description: "考前冲刺辅导，真题讲解与答疑",
+      features: ["期中期末", "标准化考试", "模拟测试", "重点串讲"]
     },
     {
       icon: Award,
-      title: "留学申诉",
-      description: "学术申诉专业指导，维护学业权益",
-      link: "#appeal"
-    },
-    {
-      icon: BookOpen,
-      title: "资料库",
-      description: "海量学习资料，随时下载使用",
-      link: "#resources"
-    },
-    {
-      icon: GraduationCap,
-      title: "选课指导",
-      description: "专业选课建议，优化学习路径",
-      link: "#course-guide"
-    }
-  ];
-
-  const courseCategories = [
-    "补考录播课",
-    "新学期预习课", 
-    "留学申诉",
-    "毕业论文"
-  ];
-
-  const courses = [
-    {
-      title: "ACF213｜兰卡斯特",
-      subtitle: "Management Accounting for Business Decisions",
-      description: "押题课程 2小时重难点讲解，2小时刷题，1小时押题",
-      price: "699",
-      originalPrice: "999",
-      students: "7人订阅",
-      tag: "课程"
-    },
-    {
-      title: "AcF304｜兰卡斯特",
-      subtitle: "Financial Markets",
-      description: "这门3学分的选修课程在每学期开始时的逻辑顺序程在...",
-      price: "699",
-      originalPrice: "999",
-      students: "6人订阅",
-      tag: "课程"
-    },
-    {
-      title: "MSCI324｜兰卡斯特",
-      subtitle: "Techniques for Management Decision Making",
-      price: "699",
-      tag: "课程"
-    },
-    {
-      title: "AcF303｜兰卡斯特",
-      subtitle: "Advanced Management Accounting",
-      price: "699",
-      tag: "课程"
+      title: "作业辅导",
+      description: "日常作业答疑，培养解题思路",
+      features: ["作业讲解", "习题指导", "项目辅助", "24h答疑"]
     }
   ];
 
@@ -91,16 +39,12 @@ const Index = () => {
   ];
 
   const features = [
-    "视频课",
-    "资料库", 
-    "毕业论文",
-    "留学申诉",
-    "学历认证",
-    "电子书",
-    "百问百答",
-    "师资介绍",
-    "选课指导",
-    "1v1辅导"
+    "100%北美名校导师团队",
+    "7x24小时在线答疑服务",
+    "个性化定制学习方案",
+    "严格保护隐私与安全",
+    "课后反馈与学习报告",
+    "支持多种支付方式"
   ];
 
   return (
@@ -193,11 +137,11 @@ const Index = () => {
               一站式留学生学业辅导解决方案
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-border/50 hover:border-primary/50 backdrop-blur-sm bg-card/50 overflow-hidden relative cursor-pointer"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-border/50 hover:border-primary/50 backdrop-blur-sm bg-card/50 overflow-hidden relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <CardContent className="p-7 space-y-5 relative">
@@ -206,6 +150,14 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <ul className="space-y-3 pt-2">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-sm group/item">
+                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 group-hover/item:scale-110 transition-transform" />
+                        <span className="group-hover/item:text-foreground text-foreground/80 transition-colors">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -213,95 +165,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Course Categories Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-wrap gap-4 justify-center">
-            {courseCategories.map((category, index) => (
-              <Button
-                key={index}
-                variant={index === 0 ? "default" : "outline"}
-                size="lg"
-                className={index === 0 
-                  ? "bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all" 
-                  : "hover:border-primary/50 hover:bg-primary/5 transition-all"
-                }
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Courses Section */}
-      <section id="courses" className="py-24 bg-muted/20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">热门课程</h2>
-            <p className="text-xl text-muted-foreground">
-              兰卡斯特大学专业课程辅导
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {courses.map((course, index) => (
-              <Card 
-                key={index} 
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border/50 hover:border-primary/50 backdrop-blur-sm bg-card/50 overflow-hidden cursor-pointer"
-              >
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <BookOpen className="h-20 w-20 text-primary/40" />
-                  </div>
-                  {course.tag && (
-                    <div className="absolute top-3 left-3 bg-destructive text-destructive-foreground px-3 py-1 rounded-lg text-sm font-medium">
-                      {course.tag}
-                    </div>
-                  )}
-                </div>
-                <CardContent className="p-6 space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-bold group-hover:text-primary transition-colors line-clamp-1">{course.title}</h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">{course.subtitle}</p>
-                    {course.description && (
-                      <p className="text-xs text-muted-foreground/80 line-clamp-2">{course.description}</p>
-                    )}
-                  </div>
-                  <div className="flex items-baseline gap-2 pt-2">
-                    <span className="text-2xl font-bold text-primary">¥{course.price}</span>
-                    {course.originalPrice && (
-                      <span className="text-sm text-muted-foreground line-through">¥{course.originalPrice}</span>
-                    )}
-                  </div>
-                  {course.students && (
-                    <p className="text-xs text-muted-foreground">{course.students}</p>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* All Services Section */}
-      <section id="features" className="py-24 bg-background">
+      {/* Features Section */}
+      <section id="features" className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">全部服务</h2>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">为什么选择我们</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              专业团队 · 全方位支持 · 助力留学成功
+              专业团队 · 贴心服务 · 值得信赖
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="group flex flex-col items-center gap-4 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="group flex items-center gap-4 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
-                <div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 group-hover:from-primary/20 group-hover:to-secondary/20 transition-colors">
-                  <BookOpen className="h-6 w-6 text-primary flex-shrink-0" />
+                <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 group-hover:from-primary/20 group-hover:to-secondary/20 transition-colors">
+                  <TrendingUp className="h-5 w-5 text-primary flex-shrink-0" />
                 </div>
-                <span className="font-medium text-center group-hover:text-primary transition-colors">{feature}</span>
+                <span className="font-medium group-hover:text-primary transition-colors">{feature}</span>
               </div>
             ))}
           </div>
