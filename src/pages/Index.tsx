@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { BookOpen, GraduationCap, Users, Award, TrendingUp, CheckCircle2, MessageCircle, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-students.jpg";
+import wechatQR from "@/assets/wechat-qr.png";
 
 const Index = () => {
+  const [qrDialogOpen, setQrDialogOpen] = useState(false);
   const services = [
     {
       icon: BookOpen,
@@ -65,7 +69,10 @@ const Index = () => {
               <a href="#services" className="text-foreground/80 hover:text-primary font-medium transition-all hover:scale-105">服务项目</a>
               <a href="#features" className="text-foreground/80 hover:text-primary font-medium transition-all hover:scale-105">平台优势</a>
               <a href="#about" className="text-foreground/80 hover:text-primary font-medium transition-all hover:scale-105">关于我们</a>
-              <Button className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all shadow-md">
+              <Button 
+                onClick={() => setQrDialogOpen(true)}
+                className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all shadow-md"
+              >
                 <MessageCircle className="h-4 w-4 mr-2" />
                 立即咨询
               </Button>
@@ -95,7 +102,11 @@ const Index = () => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:shadow-xl hover:scale-105 transition-all text-lg px-10 shadow-lg">
+                <Button 
+                  size="lg" 
+                  onClick={() => setQrDialogOpen(true)}
+                  className="bg-gradient-to-r from-primary to-secondary hover:shadow-xl hover:scale-105 transition-all text-lg px-10 shadow-lg"
+                >
                   免费咨询
                 </Button>
                 <Button size="lg" variant="outline" className="text-lg px-10 border-2 border-primary/50 hover:bg-primary/10 hover:border-primary hover:scale-105 transition-all">
@@ -199,7 +210,12 @@ const Index = () => {
             立即联系我们，获取专属学习方案和免费试课机会
           </p>
           <div className="flex flex-wrap gap-5 justify-center pt-4">
-            <Button size="lg" variant="secondary" className="text-lg px-10 bg-background text-foreground hover:bg-background/90 hover:scale-105 transition-all shadow-xl">
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              onClick={() => setQrDialogOpen(true)}
+              className="text-lg px-10 bg-background text-foreground hover:bg-background/90 hover:scale-105 transition-all shadow-xl"
+            >
               <MessageCircle className="h-5 w-5 mr-2" />
               在线咨询
             </Button>
@@ -248,6 +264,23 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* QR Code Dialog */}
+      <Dialog open={qrDialogOpen} onOpenChange={setQrDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogTitle className="text-center text-2xl font-bold">扫码咨询</DialogTitle>
+          <div className="flex flex-col items-center gap-4 py-4">
+            <img 
+              src={wechatQR} 
+              alt="微信咨询二维码" 
+              className="w-64 h-64 object-contain"
+            />
+            <p className="text-center text-muted-foreground">
+              扫描二维码添加微信，即刻获得专业咨询服务
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
