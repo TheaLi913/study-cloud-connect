@@ -71,11 +71,11 @@ const Index = () => {
     },
     {
       name: "Anna",
-      title: "硕士 金融学导师",
-      education: "北美名校背景",
-      experience: "8年+教学经验",
-      specialty: "金融分析、投资组合、风险管理",
-      description: "专注金融市场分析和投资策略，帮助学生掌握金融理论与实践技能"
+      title: "硕士 会计学导师",
+      education: "澳大利亚悉尼大学",
+      experience: "5年+教学经验，多家会计师事务所工作经验",
+      specialty: "会计学和财务管理，擅长财务报表分析和税务规划",
+      description: "强调实际案例分析和会计实务操作，帮助学生掌握实际技能"
     },
     {
       name: "Ethan",
