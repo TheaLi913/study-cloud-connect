@@ -51,6 +51,41 @@ const Index = () => {
     "支持多种支付方式"
   ];
 
+  const tutors = [
+    {
+      name: "Dr. Zhang",
+      title: "数学/统计导师",
+      education: "MIT 博士",
+      experience: "8年教学经验",
+      specialty: "高等数学、统计学、数据分析",
+      description: "擅长将复杂的数学概念简化，帮助学生建立扎实的理论基础"
+    },
+    {
+      name: "Prof. Li",
+      title: "计算机科学导师",
+      education: "Stanford 硕士",
+      experience: "6年教学经验",
+      specialty: "算法、数据结构、机器学习",
+      description: "曾在硅谷科技公司工作，理论与实践相结合的教学方式"
+    },
+    {
+      name: "Dr. Wang",
+      title: "商科/金融导师",
+      education: "Harvard MBA",
+      experience: "10年教学经验",
+      specialty: "金融学、会计学、商业战略",
+      description: "资深金融从业者，深入浅出讲解商业案例与金融理论"
+    },
+    {
+      name: "Prof. Chen",
+      title: "工程/物理导师",
+      education: "Caltech 博士",
+      experience: "7年教学经验",
+      specialty: "工程力学、热力学、电磁学",
+      description: "注重培养学生的工程思维和问题解决能力"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -68,6 +103,7 @@ const Index = () => {
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
               <a href="#services" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">服务项目</a>
               <a href="#features" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">平台优势</a>
+              <a href="#tutors" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">导师团队</a>
               <a href="#about" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">关于我们</a>
               <Button 
                 onClick={() => setQrDialogOpen(true)}
@@ -198,6 +234,54 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Tutors Section */}
+      <section id="tutors" className="py-16 sm:py-20 md:py-24 bg-muted/20 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background -z-10" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 space-y-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">导师团队</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              北美名校背景 · 丰富教学经验 · 专业学科覆盖
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 max-w-6xl mx-auto">
+            {tutors.map((tutor, index) => (
+              <Card 
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border/50 hover:border-primary/50 backdrop-blur-sm bg-card/50 overflow-hidden"
+              >
+                <CardContent className="p-5 sm:p-6 space-y-4">
+                  <div className="space-y-2">
+                    <div className="h-20 w-20 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                      <GraduationCap className="h-10 w-10 text-primary-foreground" />
+                    </div>
+                    <div className="text-center">
+                      <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{tutor.name}</h3>
+                      <p className="text-sm text-primary font-medium">{tutor.title}</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start gap-2">
+                      <Award className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground/80">{tutor.education}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground/80">{tutor.experience}</span>
+                    </div>
+                  </div>
+                  <div className="pt-2 border-t border-border/50">
+                    <p className="text-xs font-medium text-muted-foreground mb-1">专业领域：</p>
+                    <p className="text-xs text-foreground/70 leading-relaxed">{tutor.specialty}</p>
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed italic">{tutor.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQtMi42ODYtNi02LTZzLTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2IDYtMi42ODYgNi02ek0wIDB2NjBoNjBWMEgwem0zMCAzNGMtOS45NDEgMC0xOC03LjA1OS0xOC0xN0gwdjQyaDYwVjE3SDQ4Yy45NDEgOS45NDEtOC4wNTkgMTctMTggMTd6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10" />
@@ -238,7 +322,7 @@ const Index = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#services" className="hover:text-primary transition-colors">服务项目</a></li>
                 <li><a href="#features" className="hover:text-primary transition-colors">平台优势</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">导师团队</a></li>
+                <li><a href="#tutors" className="hover:text-primary transition-colors">导师团队</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">成功案例</a></li>
               </ul>
             </div>
