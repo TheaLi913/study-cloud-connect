@@ -53,36 +53,36 @@ const Index = () => {
 
   const tutors = [
     {
-      name: "Dr. Zhang",
+      name: "Lynn",
+      title: "MBA 商学导师",
+      education: "英国UCL大学",
+      experience: "10年+教学经验",
+      specialty: "商业管理、市场营销、战略规划",
+      description: "曾在国际商学院任教，强调实践与案例分析，培养学生的问题解决和决策能力"
+    },
+    {
+      name: "David",
+      title: "博士 经济学导师",
+      education: "美国福特汉姆大学",
+      experience: "高等教育机构教授",
+      specialty: "宏观经济学、国际经济学、全球经济趋势",
+      description: "丰富的教学和研究经验，注重理论与实践相结合，鼓励学生进行批判性研究"
+    },
+    {
+      name: "专业导师",
       title: "数学/统计导师",
-      education: "MIT 博士",
+      education: "北美名校背景",
       experience: "8年教学经验",
       specialty: "高等数学、统计学、数据分析",
       description: "擅长将复杂的数学概念简化，帮助学生建立扎实的理论基础"
     },
     {
-      name: "Prof. Li",
+      name: "专业导师",
       title: "计算机科学导师",
-      education: "Stanford 硕士",
+      education: "北美名校背景",
       experience: "6年教学经验",
-      specialty: "算法、数据结构、机器学习",
-      description: "曾在硅谷科技公司工作，理论与实践相结合的教学方式"
-    },
-    {
-      name: "Dr. Wang",
-      title: "商科/金融导师",
-      education: "Harvard MBA",
-      experience: "10年教学经验",
-      specialty: "金融学、会计学、商业战略",
-      description: "资深金融从业者，深入浅出讲解商业案例与金融理论"
-    },
-    {
-      name: "Prof. Chen",
-      title: "工程/物理导师",
-      education: "Caltech 博士",
-      experience: "7年教学经验",
-      specialty: "工程力学、热力学、电磁学",
-      description: "注重培养学生的工程思维和问题解决能力"
+      specialty: "算法、数据结构、编程语言",
+      description: "理论与实践相结合的教学方式，注重培养学生的编程思维"
     }
   ];
 
