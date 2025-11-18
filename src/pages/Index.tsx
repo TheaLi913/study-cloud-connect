@@ -79,11 +79,11 @@ const Index = () => {
     },
     {
       name: "Ethan",
-      title: "博士 计算机科学导师",
-      education: "北美顶尖院校",
-      experience: "10年+研发经验",
-      specialty: "算法设计、人工智能、软件工程",
-      description: "在科技企业和学术界均有丰富经验，擅长培养学生的编程思维和创新能力"
+      title: "博士在读 数学导师",
+      education: "美国纽约大学",
+      experience: "10年+数学教学经验，曾获数学教育奖项",
+      specialty: "高等数学、统计学、数学分析",
+      description: "注重逻辑思维和问题解决，以促进学生的数学素养"
     },
     {
       name: "May",
