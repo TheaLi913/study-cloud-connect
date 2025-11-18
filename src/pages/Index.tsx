@@ -69,20 +69,36 @@ const Index = () => {
       description: "丰富的教学和研究经验，注重理论与实践相结合，鼓励学生进行批判性研究"
     },
     {
-      name: "专业导师",
-      title: "数学/统计导师",
+      name: "Anna",
+      title: "硕士 金融学导师",
       education: "北美名校背景",
-      experience: "8年教学经验",
-      specialty: "高等数学、统计学、数据分析",
-      description: "擅长将复杂的数学概念简化，帮助学生建立扎实的理论基础"
+      experience: "8年+教学经验",
+      specialty: "金融分析、投资组合、风险管理",
+      description: "专注金融市场分析和投资策略，帮助学生掌握金融理论与实践技能"
     },
     {
-      name: "专业导师",
-      title: "计算机科学导师",
-      education: "北美名校背景",
-      experience: "6年教学经验",
-      specialty: "算法、数据结构、编程语言",
-      description: "理论与实践相结合的教学方式，注重培养学生的编程思维"
+      name: "Ethan",
+      title: "博士 计算机科学导师",
+      education: "北美顶尖院校",
+      experience: "10年+研发经验",
+      specialty: "算法设计、人工智能、软件工程",
+      description: "在科技企业和学术界均有丰富经验，擅长培养学生的编程思维和创新能力"
+    },
+    {
+      name: "May",
+      title: "硕士 数学统计导师",
+      education: "英国名校背景",
+      experience: "6年+教学经验",
+      specialty: "高等数学、统计分析、数据科学",
+      description: "注重数学基础训练，善于用实际案例帮助学生理解抽象概念"
+    },
+    {
+      name: "Joyce",
+      title: "硕士 会计学导师",
+      education: "澳洲名校背景",
+      experience: "7年+教学经验",
+      specialty: "财务会计、管理会计、审计学",
+      description: "持有专业会计资格证书，结合实际案例进行教学，助力学生职业发展"
     }
   ];
 
@@ -244,7 +260,7 @@ const Index = () => {
               北美名校背景 · 丰富教学经验 · 专业学科覆盖
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
             {tutors.map((tutor, index) => (
               <Card 
                 key={index}
