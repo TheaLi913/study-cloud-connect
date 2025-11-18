@@ -147,6 +147,59 @@ const Index = () => {
     }
   ];
 
+  const testimonials = [
+    {
+      name: "张同学",
+      school: "加州大学伯克利分校",
+      major: "计算机科学",
+      course: "数据结构与算法",
+      rating: 5,
+      improvement: "GPA从2.8提升至3.7",
+      comment: "导师非常专业，耐心讲解复杂的算法问题。在导师的帮助下，我不仅顺利通过了期末考试，还对编程产生了更大的兴趣。强烈推荐！",
+      date: "2024年11月"
+    },
+    {
+      name: "李同学",
+      school: "纽约大学",
+      major: "金融学",
+      course: "公司财务管理",
+      rating: 5,
+      improvement: "期末成绩从C+提升至A-",
+      comment: "Lynn导师的案例分析方法让我豁然开朗，复杂的财务概念变得容易理解。课后的学习报告也帮我查漏补缺，非常贴心的服务！",
+      date: "2024年10月"
+    },
+    {
+      name: "王同学",
+      school: "多伦多大学",
+      major: "经济学",
+      course: "计量经济学",
+      rating: 5,
+      improvement: "成功完成毕业论文",
+      comment: "David教授在我的毕业论文指导上给予了巨大帮助，从选题到数据分析再到论文写作，每个环节都悉心指导。最终我的论文获得了优秀评价！",
+      date: "2024年9月"
+    },
+    {
+      name: "陈同学",
+      school: "悉尼大学",
+      major: "会计学",
+      course: "高级财务会计",
+      rating: 5,
+      improvement: "考试成绩从62分提升至85分",
+      comment: "Anna导师的实务经验非常丰富，将理论与实践完美结合。她的辅导让我对会计准则有了更深入的理解，考试时信心满满！",
+      date: "2024年12月"
+    },
+    {
+      name: "刘同学",
+      school: "伦敦政治经济学院",
+      major: "数学",
+      course: "高等数学",
+      rating: 5,
+      improvement: "期中考试从不及格到82分",
+      comment: "Ethan导师非常有耐心，把复杂的数学概念讲得通俗易懂。他不仅教我解题方法，更培养了我的数学思维。感谢导师让我重拾对数学的信心！",
+      date: "2024年10月"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -384,6 +437,67 @@ const Index = () => {
                           <p className="text-xs text-foreground/70 leading-relaxed">{tutor.specialty}</p>
                         </div>
                         <p className="text-xs text-muted-foreground leading-relaxed italic">{tutor.description}</p>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 sm:py-20 md:py-24 bg-muted/30 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/50 to-background -z-10" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 space-y-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">学生评价</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              真实反馈，见证成长
+            </p>
+          </div>
+          <div className="max-w-6xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card className="h-full hover:shadow-xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm group">
+                      <CardContent className="p-6 space-y-4">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{testimonial.name}</h3>
+                            <p className="text-sm text-muted-foreground">{testimonial.school}</p>
+                            <p className="text-xs text-muted-foreground">{testimonial.major}</p>
+                          </div>
+                          <div className="flex gap-0.5">
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <svg key={i} className="w-4 h-4 fill-primary" viewBox="0 0 20 20">
+                                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                              </svg>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
+                            {testimonial.course}
+                          </div>
+                          <div className="inline-block ml-2 px-3 py-1 bg-secondary/10 text-secondary text-xs font-semibold rounded-full">
+                            {testimonial.improvement}
+                          </div>
+                        </div>
+                        <p className="text-sm text-foreground/80 leading-relaxed italic">
+                          "{testimonial.comment}"
+                        </p>
+                        <p className="text-xs text-muted-foreground">{testimonial.date}</p>
                       </CardContent>
                     </Card>
                   </CarouselItem>
