@@ -149,19 +149,11 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 -z-10">
-          <img 
-            src={heroImage} 
-            alt="留学生学习场景" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-background/75 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
-        </div>
-        
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5 -z-10" />
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/8 rounded-full blur-3xl -z-10" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-secondary/8 rounded-full blur-3xl -z-10" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-8 animate-in fade-in slide-in-from-left duration-700">
               <div className="space-y-5">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -192,6 +184,14 @@ const Index = () => {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="relative h-[400px] lg:h-[500px] animate-in fade-in slide-in-from-right duration-700 delay-200">
+              <img 
+                src={heroImage} 
+                alt="留学生学习场景" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
             </div>
           </div>
         </div>
