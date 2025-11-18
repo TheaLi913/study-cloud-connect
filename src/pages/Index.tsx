@@ -97,20 +97,20 @@ const Index = () => {
     },
     {
       name: "May",
-      title: "硕士 数学统计导师",
-      education: "英国名校背景",
-      experience: "6年+教学经验",
-      specialty: "高等数学、统计分析、数据科学",
-      description: "注重数学基础训练，善于用实际案例帮助学生理解抽象概念",
+      title: "硕士 金融工程导师",
+      education: "加拿大滑铁卢大学",
+      experience: "曾从事量化分析工作",
+      specialty: "金融工程、量化分析、算法交易",
+      description: "注重数学建模和数据分析，培养学生的量化分析能力",
       avatar: tutorMay
     },
     {
       name: "Joyce",
-      title: "硕士 会计学导师",
-      education: "澳洲名校背景",
-      experience: "7年+教学经验",
-      specialty: "财务会计、管理会计、审计学",
-      description: "持有专业会计资格证书，结合实际案例进行教学，助力学生职业发展",
+      title: "博士在读 金融学导师",
+      education: "英国伯明翰大学",
+      experience: "曾在金融研究机构从事经济分析工作",
+      specialty: "金融市场分析、投资管理、股票和债券市场",
+      description: "强调实际案例分析和缝隙那管理，培养学生的投资决策能力",
       avatar: tutorJoyce
     }
   ];
