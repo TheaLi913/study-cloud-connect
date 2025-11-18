@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from "@/components/ui/carousel";
 import { BookOpen, GraduationCap, Users, Award, TrendingUp, CheckCircle2, MessageCircle } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 import heroImage from "@/assets/hero-students.jpg";
+import heroCollaboration from "@/assets/hero-collaboration.jpg";
+import heroOnlineLearning from "@/assets/hero-online-learning.jpg";
+import heroSuccess from "@/assets/hero-success.jpg";
 import wechatQR from "@/assets/wechat-qr.png";
 import tutorLynn from "@/assets/tutor-lynn.jpg";
 import tutorDavid from "@/assets/tutor-david.jpg";
@@ -15,6 +19,23 @@ import tutorJoyce from "@/assets/tutor-joyce.jpg";
 
 const Index = () => {
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
+  const [heroApi, setHeroApi] = useState<CarouselApi>();
+  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
+
+  const heroImages = [
+    heroImage,
+    heroCollaboration,
+    heroOnlineLearning,
+    heroSuccess
+  ];
+
+  useEffect(() => {
+    if (!heroApi) return;
+
+    heroApi.on("select", () => {
+      setCurrentHeroSlide(heroApi.selectedScrollSnap());
+    });
+  }, [heroApi]);
   const services = [
     {
       icon: BookOpen,
@@ -149,15 +170,54 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img 
-            src={heroImage} 
-            alt="" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-background/65" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
+        {/* Background Carousel */}
+        <Carousel 
+          className="absolute inset-0 -z-10"
+          setApi={setHeroApi}
+          opts={{
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 4000,
+            }),
+          ]}
+        >
+          <CarouselContent>
+            {heroImages.map((image, index) => (
+              <CarouselItem key={index}>
+                <div className="relative w-full h-full">
+                  <img 
+                    src={image} 
+                    alt="" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-background/65" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4 bg-background/50 hover:bg-background/80 border-border/50" />
+          <CarouselNext className="right-4 bg-background/50 hover:bg-background/80 border-border/50" />
+        </Carousel>
+
+        {/* Carousel Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => heroApi?.scrollTo(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                currentHeroSlide === index 
+                  ? "bg-primary w-8" 
+                  : "bg-foreground/30 hover:bg-foreground/50"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-8 animate-in fade-in slide-in-from-left duration-700">
             <div className="space-y-5">
