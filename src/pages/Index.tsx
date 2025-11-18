@@ -149,49 +149,45 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5 -z-10" />
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/8 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-secondary/8 rounded-full blur-3xl -z-10" />
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src={heroImage} 
+            alt="" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/65" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
+        </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="space-y-8 animate-in fade-in slide-in-from-left duration-700">
-              <div className="space-y-5">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                  你的留学路上
-                  <br />
-                  <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    最可靠的云伴侣
-                  </span>
-                </h1>
-                <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
-                  专业导师团队 · 7x24小时服务 · 覆盖全学科 · 助力学业成功
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Button 
-                  size="lg" 
-                  onClick={() => setQrDialogOpen(true)}
-                  className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all px-8 shadow-md"
-                >
-                  免费咨询
-                </Button>
-              </div>
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-6 sm:gap-8 pt-4">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center group cursor-default">
-                    <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:scale-105 transition-transform">{stat.number}</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
+          <div className="max-w-3xl space-y-8 animate-in fade-in slide-in-from-left duration-700">
+            <div className="space-y-5">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                你的留学路上
+                <br />
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  最可靠的云伴侣
+                </span>
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
+                专业导师团队 · 7x24小时服务 · 覆盖全学科 · 助力学业成功
+              </p>
             </div>
-            <div className="relative h-[400px] lg:h-[500px] animate-in fade-in slide-in-from-right duration-700 delay-200">
-              <img 
-                src={heroImage} 
-                alt="留学生学习场景" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
+            <div className="flex flex-wrap gap-3">
+              <Button 
+                size="lg" 
+                onClick={() => setQrDialogOpen(true)}
+                className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all px-8 shadow-md"
+              >
+                免费咨询
+              </Button>
+            </div>
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-6 sm:gap-8 pt-4">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center group cursor-default">
+                  <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:scale-105 transition-transform">{stat.number}</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
