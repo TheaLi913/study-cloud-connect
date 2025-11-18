@@ -149,11 +149,19 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5 -z-10" />
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/8 rounded-full blur-3xl -z-10" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-secondary/8 rounded-full blur-3xl -z-10" />
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src={heroImage} 
+            alt="留学生学习场景" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/75 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
+        </div>
+        
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="max-w-3xl">
             <div className="space-y-8 animate-in fade-in slide-in-from-left duration-700">
               <div className="space-y-5">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -183,17 +191,6 @@ const Index = () => {
                     <div className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</div>
                   </div>
                 ))}
-              </div>
-            </div>
-            <div className="relative animate-in fade-in slide-in-from-right duration-700 delay-200 mt-8 lg:mt-0">
-              <div className="absolute -inset-3 bg-gradient-to-r from-primary/15 to-secondary/15 rounded-2xl blur-2xl opacity-60" />
-              <div className="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-border/40 hover:shadow-2xl transition-all duration-500">
-                <img 
-                  src={heroImage} 
-                  alt="留学生学习场景" 
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
               </div>
             </div>
           </div>
