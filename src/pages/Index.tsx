@@ -465,6 +465,11 @@ const Index = () => {
                 align: "start",
                 loop: true,
               }}
+              plugins={[
+                Autoplay({
+                  delay: 5000,
+                }),
+              ]}
               className="w-full"
             >
               <CarouselContent className="-ml-2 md:-ml-4">
