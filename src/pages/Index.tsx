@@ -6,6 +6,12 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { BookOpen, GraduationCap, Users, Award, TrendingUp, CheckCircle2, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-students.jpg";
 import wechatQR from "@/assets/wechat-qr.png";
+import tutorLynn from "@/assets/tutor-lynn.jpg";
+import tutorDavid from "@/assets/tutor-david.jpg";
+import tutorAnna from "@/assets/tutor-anna.jpg";
+import tutorEthan from "@/assets/tutor-ethan.jpg";
+import tutorMay from "@/assets/tutor-may.jpg";
+import tutorJoyce from "@/assets/tutor-joyce.jpg";
 
 const Index = () => {
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
@@ -59,7 +65,8 @@ const Index = () => {
       education: "英国UCL大学",
       experience: "10年+教学经验",
       specialty: "商业管理、市场营销、战略规划",
-      description: "曾在国际商学院任教，强调实践与案例分析，培养学生的问题解决和决策能力"
+      description: "曾在国际商学院任教，强调实践与案例分析，培养学生的问题解决和决策能力",
+      avatar: tutorLynn
     },
     {
       name: "David",
@@ -67,7 +74,8 @@ const Index = () => {
       education: "美国福特汉姆大学",
       experience: "高等教育机构教授",
       specialty: "宏观经济学、国际经济学、全球经济趋势",
-      description: "丰富的教学和研究经验，注重理论与实践相结合，鼓励学生进行批判性研究"
+      description: "丰富的教学和研究经验，注重理论与实践相结合，鼓励学生进行批判性研究",
+      avatar: tutorDavid
     },
     {
       name: "Anna",
@@ -75,7 +83,8 @@ const Index = () => {
       education: "澳大利亚悉尼大学",
       experience: "多家会计师事务所工作经验",
       specialty: "会计学、财务管理、税务规划",
-      description: "强调实际案例分析和会计实务操作，帮助学生掌握实际技能"
+      description: "强调实际案例分析和会计实务操作，帮助学生掌握实际技能",
+      avatar: tutorAnna
     },
     {
       name: "Ethan",
@@ -83,7 +92,8 @@ const Index = () => {
       education: "美国纽约大学",
       experience: "10年+数学教学经验",
       specialty: "高等数学、统计学、数学分析",
-      description: "注重逻辑思维和问题解决，以促进学生的数学素养"
+      description: "注重逻辑思维和问题解决，以促进学生的数学素养",
+      avatar: tutorEthan
     },
     {
       name: "May",
@@ -91,7 +101,8 @@ const Index = () => {
       education: "英国名校背景",
       experience: "6年+教学经验",
       specialty: "高等数学、统计分析、数据科学",
-      description: "注重数学基础训练，善于用实际案例帮助学生理解抽象概念"
+      description: "注重数学基础训练，善于用实际案例帮助学生理解抽象概念",
+      avatar: tutorMay
     },
     {
       name: "Joyce",
@@ -99,7 +110,8 @@ const Index = () => {
       education: "澳洲名校背景",
       experience: "7年+教学经验",
       specialty: "财务会计、管理会计、审计学",
-      description: "持有专业会计资格证书，结合实际案例进行教学，助力学生职业发展"
+      description: "持有专业会计资格证书，结合实际案例进行教学，助力学生职业发展",
+      avatar: tutorJoyce
     }
   ];
 
@@ -277,8 +289,12 @@ const Index = () => {
                     >
                       <CardContent className="p-5 sm:p-6 space-y-4">
                         <div className="space-y-2">
-                          <div className="h-20 w-20 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-                            <GraduationCap className="h-10 w-10 text-primary-foreground" />
+                          <div className="h-20 w-20 mx-auto rounded-full overflow-hidden shadow-lg group-hover:scale-105 transition-transform ring-2 ring-primary/20">
+                            <img 
+                              src={tutor.avatar} 
+                              alt={`${tutor.name}导师头像`}
+                              className="w-full h-full object-cover"
+                            />
                           </div>
                           <div className="text-center">
                             <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{tutor.name}</h3>
