@@ -245,7 +245,6 @@ const Index = () => {
             <div>
               <h3 className="font-bold mb-3 text-sm">联系我们</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>客服热线: 400-XXX-XXXX</li>
                 <li>工作时间: 7x24小时</li>
                 <li>邮箱: contact@liuxueyunban.com</li>
                 <li>微信: liuxueyunban</li>
