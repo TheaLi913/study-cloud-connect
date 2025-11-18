@@ -218,6 +218,7 @@ const Index = () => {
               <a href="#services" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">服务项目</a>
               <a href="#features" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">平台优势</a>
               <a href="#tutors" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">导师团队</a>
+              <a href="#testimonials" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">学生评价</a>
               <a href="#about" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">关于我们</a>
               <Button 
                 onClick={() => setQrDialogOpen(true)}
@@ -450,7 +451,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-muted/30 relative">
+      <section id="testimonials" className="py-16 sm:py-20 md:py-24 bg-muted/30 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/50 to-background -z-10" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 space-y-3">
