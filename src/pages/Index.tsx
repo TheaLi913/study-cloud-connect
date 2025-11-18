@@ -258,7 +258,7 @@ const Index = () => {
           <div className="text-center mb-12 sm:mb-16 space-y-3">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">导师团队</h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-              北美名校背景 · 丰富教学经验 · 专业学科覆盖
+              全球名校背景 · 丰富教学经验 · 专业学科覆盖
             </p>
           </div>
           <div className="max-w-6xl mx-auto px-8 sm:px-12">
