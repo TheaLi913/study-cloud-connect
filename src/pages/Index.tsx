@@ -19,7 +19,6 @@ import tutorJoyce from "@/assets/tutor-joyce.jpg";
 
 const Index = () => {
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
-  const [heroApi, setHeroApi] = useState<CarouselApi>();
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
 
   const heroImages = [
@@ -29,13 +28,25 @@ const Index = () => {
     heroSuccess
   ];
 
+  // Auto-play hero background
   useEffect(() => {
-    if (!heroApi) return;
+    const interval = setInterval(() => {
+      setCurrentHeroSlide((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
-    heroApi.on("select", () => {
-      setCurrentHeroSlide(heroApi.selectedScrollSnap());
-    });
-  }, [heroApi]);
+  const goToSlide = (index: number) => {
+    setCurrentHeroSlide(index);
+  };
+
+  const goToPrevSlide = () => {
+    setCurrentHeroSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
+  const goToNextSlide = () => {
+    setCurrentHeroSlide((prev) => (prev + 1) % heroImages.length);
+  };
   const services = [
     {
       icon: BookOpen,
@@ -169,45 +180,49 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden">
-        {/* Background Carousel */}
-        <Carousel 
-          className="absolute inset-0 -z-10"
-          setApi={setHeroApi}
-          opts={{
-            loop: true,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 4000,
-            }),
-          ]}
+      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden min-h-[600px]">
+        {/* Background Images with Fade Transition */}
+        <div className="absolute inset-0 z-0">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                currentHeroSlide === index ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img 
+                src={image} 
+                alt="" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-background/40" />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/30 to-transparent" />
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation Buttons */}
+        <button
+          onClick={goToPrevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80 border border-border/50 flex items-center justify-center transition-all"
+          aria-label="Previous slide"
         >
-          <CarouselContent>
-            {heroImages.map((image, index) => (
-              <CarouselItem key={index}>
-                <div className="relative w-full h-full">
-                  <img 
-                    src={image} 
-                    alt="" 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-background/65" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent" />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-4 bg-background/50 hover:bg-background/80 border-border/50" />
-          <CarouselNext className="right-4 bg-background/50 hover:bg-background/80 border-border/50" />
-        </Carousel>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button
+          onClick={goToNextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-background/50 hover:bg-background/80 border border-border/50 flex items-center justify-center transition-all"
+          aria-label="Next slide"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
 
         {/* Carousel Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {heroImages.map((_, index) => (
             <button
               key={index}
-              onClick={() => heroApi?.scrollTo(index)}
+              onClick={() => goToSlide(index)}
               className={`w-2 h-2 rounded-full transition-all ${
                 currentHeroSlide === index 
                   ? "bg-primary w-8" 
@@ -218,7 +233,7 @@ const Index = () => {
           ))}
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-8 animate-in fade-in slide-in-from-left duration-700">
             <div className="space-y-5">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
