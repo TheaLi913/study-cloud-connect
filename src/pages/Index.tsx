@@ -81,7 +81,7 @@ const Index = () => {
       name: "Ethan",
       title: "博士在读 数学导师",
       education: "美国纽约大学",
-      experience: "10年+数学教学经验，曾获数学教育奖项",
+      experience: "10年+数学教学经验",
       specialty: "高等数学、统计学、数学分析",
       description: "注重逻辑思维和问题解决，以促进学生的数学素养"
     },
