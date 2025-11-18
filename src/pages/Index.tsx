@@ -252,7 +252,7 @@ const Index = () => {
             </div>
           </div>
           <div className="pt-6 border-t border-border text-center text-sm text-muted-foreground">
-            <p>© 2024 留学云伴. All rights reserved.</p>
+            <p>2025 留学云伴. All rights reserved.</p>
           </div>
         </div>
       </footer>
