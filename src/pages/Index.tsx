@@ -73,7 +73,7 @@ const Index = () => {
       name: "Anna",
       title: "硕士 会计学导师",
       education: "澳大利亚悉尼大学",
-      experience: "5年+教学经验，多家会计师事务所工作经验",
+      experience: "多家会计师事务所工作经验",
       specialty: "会计学和财务管理，擅长财务报表分析和税务规划",
       description: "强调实际案例分析和会计实务操作，帮助学生掌握实际技能"
     },
