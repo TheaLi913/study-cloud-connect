@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { BookOpen, GraduationCap, Users, Award, TrendingUp, CheckCircle2, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-students.jpg";
 import wechatQR from "@/assets/wechat-qr.png";
@@ -260,40 +261,53 @@ const Index = () => {
               北美名校背景 · 丰富教学经验 · 专业学科覆盖
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
-            {tutors.map((tutor, index) => (
-              <Card 
-                key={index}
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border/50 hover:border-primary/50 backdrop-blur-sm bg-card/50 overflow-hidden"
-              >
-                <CardContent className="p-5 sm:p-6 space-y-4">
-                  <div className="space-y-2">
-                    <div className="h-20 w-20 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-                      <GraduationCap className="h-10 w-10 text-primary-foreground" />
-                    </div>
-                    <div className="text-center">
-                      <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{tutor.name}</h3>
-                      <p className="text-sm text-primary font-medium">{tutor.title}</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-start gap-2">
-                      <Award className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground/80">{tutor.education}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground/80">{tutor.experience}</span>
-                    </div>
-                  </div>
-                  <div className="pt-2 border-t border-border/50">
-                    <p className="text-xs font-medium text-muted-foreground mb-1">专业领域：</p>
-                    <p className="text-xs text-foreground/70 leading-relaxed">{tutor.specialty}</p>
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed italic">{tutor.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-6xl mx-auto px-8 sm:px-12">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {tutors.map((tutor, index) => (
+                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card 
+                      className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-border/50 hover:border-primary/50 backdrop-blur-sm bg-card/50 overflow-hidden h-full"
+                    >
+                      <CardContent className="p-5 sm:p-6 space-y-4">
+                        <div className="space-y-2">
+                          <div className="h-20 w-20 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                            <GraduationCap className="h-10 w-10 text-primary-foreground" />
+                          </div>
+                          <div className="text-center">
+                            <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{tutor.name}</h3>
+                            <p className="text-sm text-primary font-medium">{tutor.title}</p>
+                          </div>
+                        </div>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex items-start gap-2">
+                            <Award className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-foreground/80">{tutor.education}</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-foreground/80">{tutor.experience}</span>
+                          </div>
+                        </div>
+                        <div className="pt-2 border-t border-border/50">
+                          <p className="text-xs font-medium text-muted-foreground mb-1">专业领域：</p>
+                          <p className="text-xs text-foreground/70 leading-relaxed">{tutor.specialty}</p>
+                        </div>
+                        <p className="text-xs text-muted-foreground leading-relaxed italic">{tutor.description}</p>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
           </div>
         </div>
       </section>
