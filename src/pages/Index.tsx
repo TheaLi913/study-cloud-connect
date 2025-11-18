@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { BookOpen, GraduationCap, Users, Award, TrendingUp, CheckCircle2, MessageCircle, Phone } from "lucide-react";
+import { BookOpen, GraduationCap, Users, Award, TrendingUp, CheckCircle2, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-students.jpg";
 import wechatQR from "@/assets/wechat-qr.png";
 
@@ -109,10 +109,6 @@ const Index = () => {
                 >
                   免费咨询
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-10 border-2 border-primary/50 hover:bg-primary/10 hover:border-primary hover:scale-105 transition-all">
-                  <Phone className="h-5 w-5 mr-2" />
-                  预约试课
-                </Button>
               </div>
               <div className="flex flex-wrap gap-10 pt-6">
                 {stats.map((stat, index) => (
@@ -218,10 +214,6 @@ const Index = () => {
             >
               <MessageCircle className="h-5 w-5 mr-2" />
               在线咨询
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-10 border-2 border-background/80 text-primary-foreground hover:bg-background/20 hover:border-background hover:scale-105 transition-all backdrop-blur-sm">
-              <Phone className="h-5 w-5 mr-2" />
-              400-XXX-XXXX
             </Button>
           </div>
         </div>
