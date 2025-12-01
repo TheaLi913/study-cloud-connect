@@ -59,6 +59,12 @@ const Index = () => {
       title: "学术写作",
       description: "论文指导与润色，提升学术写作能力",
       features: ["Essay写作", "Research Paper", "毕业论文", "文献综述"]
+    },
+    {
+      icon: Award,
+      title: "学业申诉",
+      description: "评估案件-制定策略-撰写文书-结果跟进一条龙服务",
+      features: ["学术不端Appeal", "成绩申诉", "延期/撤课申请", "学业挽救"]
     }
   ];
 
