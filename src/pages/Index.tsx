@@ -63,7 +63,7 @@ const Index = () => {
     {
       icon: Award,
       title: "学业申诉",
-      description: "评估案件-制定策略-撰写文书-结果跟进一条龙服务",
+      description: "评估案件-制定策略-撰写文书-结果跟进",
       features: ["学术不端Appeal", "成绩申诉", "延期/撤课申请", "学业挽救"]
     }
   ];
