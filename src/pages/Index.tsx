@@ -16,6 +16,8 @@ import tutorAnna from "@/assets/tutor-anna.jpg";
 import tutorEthan from "@/assets/tutor-ethan.jpg";
 import tutorMay from "@/assets/tutor-may.jpg";
 import tutorJoyce from "@/assets/tutor-joyce.jpg";
+import reviewPoster1 from "@/assets/review-poster-1.png";
+import reviewPoster2 from "@/assets/review-poster-2.png";
 
 const Index = () => {
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
@@ -500,6 +502,48 @@ const Index = () => {
                         <p className="text-xs text-muted-foreground">{testimonial.date}</p>
                       </CardContent>
                     </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
+      {/* Review Posters Section */}
+      <section className="py-16 sm:py-20 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 space-y-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">辅导喜报</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              学员真实成绩展示
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                }),
+              ]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {[reviewPoster1, reviewPoster2].map((poster, index) => (
+                  <CarouselItem key={index} className="pl-4 md:basis-1/2">
+                    <div className="p-2">
+                      <img 
+                        src={poster} 
+                        alt={`辅导喜报 ${index + 1}`}
+                        className="w-full h-auto rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                      />
+                    </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
