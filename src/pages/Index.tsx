@@ -50,27 +50,15 @@ const Index = () => {
   const services = [
     {
       icon: BookOpen,
-      title: "课程辅导",
-      description: "专业导师1v1辅导，覆盖各学科核心课程",
-      features: ["数学/统计", "编程/CS", "商科/金融", "工程/物理"]
+      title: "全科辅导",
+      description: "课程辅导、考试突击、作业答疑一站式服务",
+      features: ["1v1课程辅导", "考前冲刺突击", "作业讲解答疑", "24h在线支持"]
     },
     {
       icon: GraduationCap,
       title: "学术写作",
       description: "论文指导与润色，提升学术写作能力",
       features: ["Essay写作", "Research Paper", "毕业论文", "文献综述"]
-    },
-    {
-      icon: Users,
-      title: "考试突击",
-      description: "考前冲刺辅导，真题讲解与答疑",
-      features: ["期中期末", "标准化考试", "模拟测试", "重点串讲"]
-    },
-    {
-      icon: Award,
-      title: "作业辅导",
-      description: "日常作业答疑，培养解题思路",
-      features: ["作业讲解", "习题指导", "项目辅助", "24h答疑"]
     }
   ];
 
@@ -332,7 +320,7 @@ const Index = () => {
               一站式留学生学业辅导解决方案
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 max-w-3xl mx-auto">
             {services.map((service, index) => (
               <Card 
                 key={index} 
