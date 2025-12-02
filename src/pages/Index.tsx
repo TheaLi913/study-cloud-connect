@@ -60,7 +60,7 @@ const Index = () => {
       icon: GraduationCap,
       title: "学术写作",
       description: "论文指导与润色，提升学术写作能力",
-      features: ["Essay写作", "Research Paper", "毕业论文", "文献综述"]
+      features: ["Essay写作", "Research Paper写作", "硕博毕业论文", "期刊发表"]
     },
     {
       icon: Award,
