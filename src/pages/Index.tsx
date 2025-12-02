@@ -16,6 +16,10 @@ import tutorAnna from "@/assets/tutor-anna.jpg";
 import tutorEthan from "@/assets/tutor-ethan.jpg";
 import tutorMay from "@/assets/tutor-may.jpg";
 import tutorJoyce from "@/assets/tutor-joyce.jpg";
+import reviewPoster1 from "@/assets/review-poster-1.jpg";
+import reviewPoster2 from "@/assets/review-poster-2.jpg";
+import reviewPoster3 from "@/assets/review-poster-3.jpg";
+import reviewPoster4 from "@/assets/review-poster-4.jpg";
 
 const Index = () => {
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
@@ -506,6 +510,33 @@ const Index = () => {
               <CarouselPrevious className="hidden sm:flex" />
               <CarouselNext className="hidden sm:flex" />
             </Carousel>
+          </div>
+
+          {/* Review Posters Section */}
+          <div className="mt-16 sm:mt-20">
+            <div className="text-center mb-8 sm:mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">辅导喜报</h3>
+              <p className="text-sm sm:text-base text-muted-foreground">
+                真实成绩提升案例
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
+              {[reviewPoster1, reviewPoster2, reviewPoster3, reviewPoster4].map((poster, index) => (
+                <div 
+                  key={index}
+                  className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-background border border-border/50"
+                >
+                  <div className="overflow-hidden h-[400px] sm:h-[500px] relative">
+                    <img 
+                      src={poster} 
+                      alt={`好评海报 ${index + 1}`}
+                      className="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-linear group-hover:translate-y-[calc(-100%+400px)] sm:group-hover:translate-y-[calc(-100%+500px)]"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
