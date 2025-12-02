@@ -16,7 +16,6 @@ import tutorAnna from "@/assets/tutor-anna.jpg";
 import tutorEthan from "@/assets/tutor-ethan.jpg";
 import tutorMay from "@/assets/tutor-may.jpg";
 import tutorJoyce from "@/assets/tutor-joyce.jpg";
-import reviewPoster1 from "@/assets/review-poster-1.png";
 
 const Index = () => {
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
@@ -507,17 +506,6 @@ const Index = () => {
               <CarouselPrevious className="hidden sm:flex" />
               <CarouselNext className="hidden sm:flex" />
             </Carousel>
-          </div>
-
-          {/* Review Poster */}
-          <div className="mt-12 sm:mt-16 max-w-2xl mx-auto">
-            <div className="rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
-              <img 
-                src={reviewPoster1} 
-                alt="学生辅导成功案例"
-                className="w-full h-auto"
-              />
-            </div>
           </div>
         </div>
       </section>
