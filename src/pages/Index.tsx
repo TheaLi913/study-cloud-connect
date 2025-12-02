@@ -511,9 +511,6 @@ const Index = () => {
 
           {/* Review Poster */}
           <div className="mt-12 sm:mt-16 max-w-2xl mx-auto">
-            <div className="text-center mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground/90">辅导喜报</h3>
-            </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
               <img 
                 src={reviewPoster1} 
