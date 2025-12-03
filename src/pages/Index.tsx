@@ -26,6 +26,23 @@ import reviewPoster6 from "@/assets/review-poster-6.jpg";
 const Index = () => {
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
+  const [posterLightboxOpen, setPosterLightboxOpen] = useState(false);
+  const [currentPosterIndex, setCurrentPosterIndex] = useState(0);
+
+  const reviewPosters = [reviewPoster1, reviewPoster2, reviewPoster3, reviewPoster4, reviewPoster5, reviewPoster6];
+
+  const openPosterLightbox = (index: number) => {
+    setCurrentPosterIndex(index);
+    setPosterLightboxOpen(true);
+  };
+
+  const goToPrevPoster = () => {
+    setCurrentPosterIndex((prev) => (prev - 1 + reviewPosters.length) % reviewPosters.length);
+  };
+
+  const goToNextPoster = () => {
+    setCurrentPosterIndex((prev) => (prev + 1) % reviewPosters.length);
+  };
 
   const heroImages = [
     heroImage,
@@ -523,10 +540,11 @@ const Index = () => {
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
-              {[reviewPoster1, reviewPoster2, reviewPoster3, reviewPoster4, reviewPoster5, reviewPoster6].map((poster, index) => (
+              {reviewPosters.map((poster, index) => (
                 <div 
                   key={index}
-                  className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-background border border-border/50"
+                  className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-background border border-border/50 cursor-pointer"
+                  onClick={() => openPosterLightbox(index)}
                 >
                   <div className="overflow-hidden h-[300px] sm:h-[400px] relative">
                     <img 
@@ -535,11 +553,65 @@ const Index = () => {
                       className="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-linear group-hover:translate-y-[calc(-100%+300px)] sm:group-hover:translate-y-[calc(-100%+400px)]"
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">点击查看大图</span>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* Poster Lightbox Dialog */}
+          <Dialog open={posterLightboxOpen} onOpenChange={setPosterLightboxOpen}>
+            <DialogContent className="max-w-4xl w-[95vw] h-[90vh] p-0 bg-black/95 border-none overflow-hidden">
+              <DialogTitle className="sr-only">查看辅导喜报</DialogTitle>
+              <div className="relative w-full h-full flex items-center justify-center">
+                {/* Close button */}
+                <button
+                  onClick={() => setPosterLightboxOpen(false)}
+                  className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                >
+                  <span className="text-2xl">×</span>
+                </button>
+                
+                {/* Previous button */}
+                <button
+                  onClick={goToPrevPoster}
+                  className="absolute left-2 sm:left-4 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                >
+                  <span className="text-xl sm:text-2xl">‹</span>
+                </button>
+                
+                {/* Image */}
+                <div className="w-full h-full overflow-auto flex items-start justify-center p-4 sm:p-8">
+                  <img 
+                    src={reviewPosters[currentPosterIndex]} 
+                    alt={`辅导喜报 ${currentPosterIndex + 1}`}
+                    className="max-w-full h-auto object-contain"
+                  />
+                </div>
+                
+                {/* Next button */}
+                <button
+                  onClick={goToNextPoster}
+                  className="absolute right-2 sm:right-4 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                >
+                  <span className="text-xl sm:text-2xl">›</span>
+                </button>
+                
+                {/* Indicator */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {reviewPosters.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentPosterIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-colors ${index === currentPosterIndex ? 'bg-white' : 'bg-white/40'}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 
