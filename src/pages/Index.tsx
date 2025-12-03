@@ -564,9 +564,9 @@ const Index = () => {
 
           {/* Poster Lightbox Dialog */}
           <Dialog open={posterLightboxOpen} onOpenChange={setPosterLightboxOpen}>
-            <DialogContent className="max-w-4xl w-[95vw] h-[90vh] p-0 bg-black/95 border-none overflow-hidden">
+            <DialogContent className="max-w-4xl w-[95vw] h-[90vh] p-0 bg-black/95 border-none flex flex-col">
               <DialogTitle className="sr-only">查看辅导喜报</DialogTitle>
-              <div className="relative w-full h-full flex items-center justify-center">
+              <div className="relative w-full h-full flex flex-col">
                 {/* Close button */}
                 <button
                   onClick={() => setPosterLightboxOpen(false)}
@@ -578,24 +578,26 @@ const Index = () => {
                 {/* Previous button */}
                 <button
                   onClick={goToPrevPoster}
-                  className="absolute left-2 sm:left-4 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
                 >
                   <span className="text-xl sm:text-2xl">‹</span>
                 </button>
                 
-                {/* Image */}
-                <div className="w-full h-full overflow-auto flex items-start justify-center p-4 sm:p-8">
-                  <img 
-                    src={reviewPosters[currentPosterIndex]} 
-                    alt={`辅导喜报 ${currentPosterIndex + 1}`}
-                    className="max-w-full h-auto object-contain"
-                  />
+                {/* Image - scrollable area */}
+                <div className="flex-1 overflow-y-auto overflow-x-hidden px-12 py-4">
+                  <div className="flex justify-center">
+                    <img 
+                      src={reviewPosters[currentPosterIndex]} 
+                      alt={`辅导喜报 ${currentPosterIndex + 1}`}
+                      className="max-w-full h-auto"
+                    />
+                  </div>
                 </div>
                 
                 {/* Next button */}
                 <button
                   onClick={goToNextPoster}
-                  className="absolute right-2 sm:right-4 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
                 >
                   <span className="text-xl sm:text-2xl">›</span>
                 </button>
