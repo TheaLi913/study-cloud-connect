@@ -550,7 +550,7 @@ const Index = () => {
                     <img 
                       src={poster} 
                       alt={`辅导喜报 ${index + 1}`}
-                      className="w-full h-auto object-cover object-top transition-transform duration-[10000ms] ease-linear group-hover:translate-y-[calc(-100%+300px)] sm:group-hover:translate-y-[calc(-100%+400px)]"
+                      className="w-full h-auto object-cover object-top transition-transform duration-[30000ms] ease-linear group-hover:translate-y-[calc(-100%+300px)] sm:group-hover:translate-y-[calc(-100%+400px)]"
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
