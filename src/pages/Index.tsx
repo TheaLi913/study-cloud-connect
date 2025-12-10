@@ -668,7 +668,7 @@ const Index = () => {
                 <li><a href="#services" className="hover:text-primary transition-colors">服务项目</a></li>
                 <li><a href="#features" className="hover:text-primary transition-colors">平台优势</a></li>
                 <li><a href="#tutors" className="hover:text-primary transition-colors">导师团队</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">成功案例</a></li>
+                <li><a href="#review-posters" className="hover:text-primary transition-colors">成功案例</a></li>
               </ul>
             </div>
             <div>
