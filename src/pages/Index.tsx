@@ -10,7 +10,9 @@ import heroImage from "@/assets/hero-students.jpg";
 import heroCollaboration from "@/assets/hero-collaboration.jpg";
 import heroOnlineLearning from "@/assets/hero-online-learning.jpg";
 import heroSuccess from "@/assets/hero-success.jpg";
-import wechatQR from "@/assets/wechat-qr.png";
+import wechatQR1 from "@/assets/wechat-qr-1.png";
+import wechatQR2 from "@/assets/wechat-qr-2.png";
+import wechatQR3 from "@/assets/wechat-qr-3.png";
 import tutorLynn from "@/assets/tutor-lynn.jpg";
 import tutorDavid from "@/assets/tutor-david.jpg";
 import tutorAnna from "@/assets/tutor-anna.jpg";
@@ -26,6 +28,14 @@ import reviewPoster6 from "@/assets/review-poster-6.jpg";
 
 const Index = () => {
   const [qrDialogOpen, setQrDialogOpen] = useState(false);
+  const [currentQrIndex, setCurrentQrIndex] = useState(0);
+  
+  const wechatQRCodes = [wechatQR1, wechatQR2, wechatQR3];
+  
+  const openQrDialog = (qrIndex: number) => {
+    setCurrentQrIndex(qrIndex);
+    setQrDialogOpen(true);
+  };
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [posterLightboxOpen, setPosterLightboxOpen] = useState(false);
   const [currentPosterIndex, setCurrentPosterIndex] = useState(0);
@@ -237,7 +247,7 @@ const Index = () => {
               <a href="#testimonials" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">学生评价</a>
               <a href="#about" className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors">关于我们</a>
               <Button 
-                onClick={() => setQrDialogOpen(true)}
+                onClick={() => openQrDialog(0)}
                 size="sm"
                 className="bg-gradient-to-r from-primary to-secondary hover:shadow-md transition-all"
               >
@@ -320,7 +330,7 @@ const Index = () => {
             <div className="flex flex-wrap gap-3">
               <Button 
                 size="lg" 
-                onClick={() => setQrDialogOpen(true)}
+                onClick={() => openQrDialog(1)}
                 className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all px-8 shadow-md"
               >
                 免费咨询
@@ -629,7 +639,7 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="secondary" 
-              onClick={() => setQrDialogOpen(true)}
+              onClick={() => openQrDialog(2)}
               className="text-base sm:text-lg px-8 sm:px-10 bg-background text-foreground hover:bg-background/90 transition-all shadow-lg"
             >
               <MessageCircle className="h-5 w-5 mr-2" />
@@ -682,7 +692,7 @@ const Index = () => {
           <DialogTitle className="text-center text-2xl font-bold">扫码咨询</DialogTitle>
           <div className="flex flex-col items-center gap-4 py-4">
             <img 
-              src={wechatQR} 
+              src={wechatQRCodes[currentQrIndex]} 
               alt="微信咨询二维码" 
               className="w-64 h-64 object-contain"
             />
