@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from "@/components/ui/carousel";
 import { BookOpen, GraduationCap, Users, Award, TrendingUp, CheckCircle2, MessageCircle } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
+import logoImage from "@/assets/logo.png";
 import heroImage from "@/assets/hero-students.jpg";
 import heroCollaboration from "@/assets/hero-collaboration.jpg";
 import heroOnlineLearning from "@/assets/hero-online-learning.jpg";
@@ -223,10 +224,8 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border/50 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <a href="#" className="flex items-center gap-2.5 group cursor-pointer">
-              <div className="p-2 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-md group-hover:shadow-lg transition-all">
-                <GraduationCap className="h-5 w-5 text-primary-foreground" />
-              </div>
+            <a href="#" className="flex items-center gap-1.5 group cursor-pointer">
+              <img src={logoImage} alt="留学云伴" className="h-10 w-auto" />
               <span className="text-xl font-bold bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
                 留学云伴
               </span>
