@@ -652,8 +652,8 @@ const Index = () => {
       {/* Footer */}
       <footer id="about" className="py-10 sm:py-12 bg-card border-t border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
-            <div className="space-y-3">
+          <div className="grid sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-8 md:gap-x-4 mb-8">
+            <div className="space-y-3 md:pr-12">
               <div className="flex items-center gap-2">
                 <GraduationCap className="h-7 w-7 text-primary" />
                 <span className="text-lg font-bold">留学云伴</span>
