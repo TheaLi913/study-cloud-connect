@@ -541,7 +541,7 @@ const Index = () => {
           </div>
 
           {/* Review Posters Section */}
-          <div className="mt-16 sm:mt-20">
+          <div id="review-posters" className="mt-16 sm:mt-20 scroll-mt-20">
             <div className="text-center mb-8 sm:mb-12">
               <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">辅导喜报</h3>
               <p className="text-sm sm:text-base text-muted-foreground">
