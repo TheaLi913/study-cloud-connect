@@ -235,7 +235,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center gap-1.5 group cursor-pointer">
-              <img src={logoImage} alt="留学云伴" className="h-12 w-auto" />
+              <img src={logoImage} alt="留学云伴" className="h-12 w-auto -mt-1" />
               <span className="text-xl font-bold bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
                 留学云伴
               </span>
