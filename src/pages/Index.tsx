@@ -675,8 +675,7 @@ const Index = () => {
               <h3 className="font-bold mb-3 text-sm">联系我们</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>工作时间: 7x24小时</li>
-                <li>邮箱: contact@liuxueyunban.com</li>
-                <li>微信: liuxueyunban</li>
+                <li>微信：<button onClick={() => openQrDialog(Math.floor(Math.random() * 3))} className="text-primary hover:underline">扫码咨询</button></li>
               </ul>
             </div>
           </div>
